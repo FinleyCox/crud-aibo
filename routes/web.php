@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-    Route::post('/posts-create', [PostController::class, 'create'])->name('posts.create');
+    Route::get('/posts-create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/post-edit', [PostController::class, 'edit'])->name('edit');
 });
 
