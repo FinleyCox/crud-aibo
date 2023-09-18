@@ -10,6 +10,8 @@ import { Link } from '@inertiajs/vue3';
 const showingNavigationDropdown = ref(false);
 </script>
 
+<!-- ダッシュボード、投稿ページなどナビゲーションリンクス系 -->
+
 <template>
     <div>
         <div class="min-h-screen bg-gray-100">
@@ -26,23 +28,16 @@ const showingNavigationDropdown = ref(false);
                                     />
                                 </Link>
                             </div>
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('post')">
-                                    <ApplicationLogo
-                                        class="block h-9 w-auto fill-current text-gray-800"
-                                    />
-                                </Link>
-                            </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    ダッシュボード
                                 </NavLink>
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('post')" :active="route().current('post')">
-                                    Post
+                                <NavLink :href="route('posts.index')" :active="route().current('posts.index')">
+                                    投稿
                                 </NavLink>
                             </div>
                         </div>
@@ -76,9 +71,9 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
-                                        <DropdownLink :href="route('profile.edit')"> Profile </DropdownLink>
+                                        <DropdownLink :href="route('profile.edit')"> プロフィール </DropdownLink>
                                         <DropdownLink :href="route('logout')" method="post" as="button">
-                                            Log Out
+                                            ログアウト
                                         </DropdownLink>
                                     </template>
                                 </Dropdown>
