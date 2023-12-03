@@ -37,7 +37,12 @@ const showingNavigationDropdown = ref(false);
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('posts.index')" :active="route().current('posts.index')">
-                                    投稿
+                                    じぶんの投稿＆しんき投稿
+                                </NavLink>
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('allPosts.index')" :active="route().current('allPosts.index')">
+                                    みんなの投稿
                                 </NavLink>
                             </div>
                         </div>

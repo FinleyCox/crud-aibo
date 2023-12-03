@@ -1,12 +1,13 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, useRemember } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import { defineProps } from 'vue';
 
-defineProps ({
-    posts: Array,
-})
+const props = defineProps({
+        posts: Object,
+    });
+
 </script>
 
 <template>
@@ -23,14 +24,8 @@ defineProps ({
             </div>
         </div>
         </template>
-        <!-- <div>
-            <ul>
-                <li v-for="post in $page.props.posts" :key="post.id">{{ post.title }}</li>
-            </ul>
-        </div> -->
 
         <div v-for="post in posts" :key="post.id" class="flex items-center justify-center h-screen">
-            <!-- <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains"> -->
             <div class="max-w-sm rounded overflow-hidden shadow-lg">
                 <div class="px-6 py-4" >
                     {{ post.title }}
@@ -38,11 +33,12 @@ defineProps ({
                 <div>
                     {{ post.content }}
                 </div>
+                <div>
+                    <Link :href=" `/post-edit/${post.id}`">へんしゅうする？</Link>
+                </div>
             </div>
         </div>
 
     </AuthenticatedLayout>
-
-    <!-- CARDS FOR Post -->
 
 </template>

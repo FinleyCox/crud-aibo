@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AllPostsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -39,7 +40,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
     Route::get('/posts-create', [PostController::class, 'create'])->name('posts.create');
-    Route::post('/post-edit', [PostController::class, 'edit'])->name('edit');
+    Route::post('/posts-store', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/post-edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
+    Route::post('/post-edit/{id}', [PostController::class, 'update'])->name('posts.update');
+
+    Route::get('/all-posts', [AllPostsController::class, 'index'])->name('allPosts.index');
 });
 
 require __DIR__.'/auth.php';
